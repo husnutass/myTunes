@@ -14,18 +14,18 @@ class GenericBaseView<T>: BaseView {
     init(frame: CGRect = .zero, data: T? = nil) {
         self.data = data
         super.init(frame: frame)
-        loadDataView()
+        loadViewData()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func loadDataView() {}
+    func loadViewData() {}
     
     func setData(by value: T?) {
         self.data = value
-        loadDataView()
+        loadViewData()
     }
     
     func returnData() -> T? {
