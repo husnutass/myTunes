@@ -20,10 +20,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        let splashViewController = SplashViewBuilder.build {
+//            self.initHomeViewController()
+        }
         
-        window?.rootViewController = navigationController
+        window?.rootViewController = splashViewController
         window?.makeKeyAndVisible()
+    }
+    
+    private func initHomeViewController() {
+        DispatchQueue.main.async {
+            let navigationController = UINavigationController(rootViewController: ViewController())
+            
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
