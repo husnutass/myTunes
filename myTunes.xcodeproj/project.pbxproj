@@ -20,6 +20,13 @@
 		BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41D27283E5C0079B893 /* BaseView.swift */; };
 		BC58F420272847450079B893 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41F272847450079B893 /* GenericValueProtocol.swift */; };
 		BC58F422272847ED0079B893 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F421272847ED0079B893 /* BaseCollectionViewCell.swift */; };
+		BC58F42427286D410079B893 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC58F42327286D410079B893 /* Colors.xcassets */; };
+		BC58F4292728908F0079B893 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F4282728908F0079B893 /* UIColor+Extension.swift */; };
+		BC58F42B272892840079B893 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F42A272892840079B893 /* UIView+Extension.swift */; };
+		BC58F42F2728A2350079B893 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F42E2728A2350079B893 /* SplashViewController.swift */; };
+		BC58F4312728A2990079B893 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F4302728A2980079B893 /* SplashViewModel.swift */; };
+		BC58F4342728B07B0079B893 /* SplashViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F4332728B07B0079B893 /* SplashViewBuilder.swift */; };
+		BC58F4362728B9AA0079B893 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F4352728B9AA0079B893 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,13 @@
 		BC58F41D27283E5C0079B893 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BC58F41F272847450079B893 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
 		BC58F421272847ED0079B893 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC58F42327286D410079B893 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BC58F4282728908F0079B893 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BC58F42A272892840079B893 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BC58F42E2728A2350079B893 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BC58F4302728A2980079B893 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		BC58F4332728B07B0079B893 /* SplashViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewBuilder.swift; sourceTree = "<group>"; };
+		BC58F4352728B9AA0079B893 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +121,13 @@
 		BC58F3E7272835850079B893 /* myTunes */ = {
 			isa = PBXGroup;
 			children = (
+				BC58F42C2728A2090079B893 /* Scenes */,
+				BC58F4262728906C0079B893 /* Utils */,
 				BC58F41827283D7C0079B893 /* BaseComponents */,
 				BC58F3E8272835850079B893 /* AppDelegate.swift */,
 				BC58F3EA272835850079B893 /* SceneDelegate.swift */,
 				BC58F3EC272835850079B893 /* ViewController.swift */,
-				BC58F3F1272835880079B893 /* Assets.xcassets */,
+				BC58F42527286D4B0079B893 /* Resources */,
 				BC58F3F3272835880079B893 /* LaunchScreen.storyboard */,
 				BC58F3F6272835880079B893 /* Info.plist */,
 			);
@@ -145,6 +161,51 @@
 				BC58F41F272847450079B893 /* GenericValueProtocol.swift */,
 			);
 			path = BaseComponents;
+			sourceTree = "<group>";
+		};
+		BC58F42527286D4B0079B893 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F3F1272835880079B893 /* Assets.xcassets */,
+				BC58F42327286D410079B893 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BC58F4262728906C0079B893 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F427272890740079B893 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BC58F427272890740079B893 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F4282728908F0079B893 /* UIColor+Extension.swift */,
+				BC58F4352728B9AA0079B893 /* UIImage+Extension.swift */,
+				BC58F42A272892840079B893 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BC58F42C2728A2090079B893 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F42D2728A2100079B893 /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BC58F42D2728A2100079B893 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F42E2728A2350079B893 /* SplashViewController.swift */,
+				BC58F4302728A2980079B893 /* SplashViewModel.swift */,
+				BC58F4332728B07B0079B893 /* SplashViewBuilder.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC58F42427286D410079B893 /* Colors.xcassets in Resources */,
 				BC58F3F5272835880079B893 /* LaunchScreen.storyboard in Resources */,
 				BC58F3F2272835880079B893 /* Assets.xcassets in Resources */,
 			);
@@ -278,13 +340,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC58F3ED272835850079B893 /* ViewController.swift in Sources */,
+				BC58F4362728B9AA0079B893 /* UIImage+Extension.swift in Sources */,
 				BC58F422272847ED0079B893 /* BaseCollectionViewCell.swift in Sources */,
 				BC58F41A27283D910079B893 /* GenericBaseViewController.swift in Sources */,
+				BC58F4312728A2990079B893 /* SplashViewModel.swift in Sources */,
 				BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */,
 				BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */,
 				BC58F41C27283E370079B893 /* GenericBaseView.swift in Sources */,
 				BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */,
+				BC58F4292728908F0079B893 /* UIColor+Extension.swift in Sources */,
+				BC58F42B272892840079B893 /* UIView+Extension.swift in Sources */,
+				BC58F4342728B07B0079B893 /* SplashViewBuilder.swift in Sources */,
 				BC58F420272847450079B893 /* GenericValueProtocol.swift in Sources */,
+				BC58F42F2728A2350079B893 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
