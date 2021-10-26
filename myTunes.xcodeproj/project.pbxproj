@@ -15,6 +15,11 @@
 		BC58F400272835890079B893 /* myTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F3FF272835890079B893 /* myTunesTests.swift */; };
 		BC58F40A272835890079B893 /* myTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F409272835890079B893 /* myTunesUITests.swift */; };
 		BC58F40C272835890079B893 /* myTunesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F40B272835890079B893 /* myTunesUITestsLaunchTests.swift */; };
+		BC58F41A27283D910079B893 /* GenericBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41927283D910079B893 /* GenericBaseViewController.swift */; };
+		BC58F41C27283E370079B893 /* GenericBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41B27283E360079B893 /* GenericBaseView.swift */; };
+		BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41D27283E5C0079B893 /* BaseView.swift */; };
+		BC58F420272847450079B893 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F41F272847450079B893 /* GenericValueProtocol.swift */; };
+		BC58F422272847ED0079B893 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F421272847ED0079B893 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		BC58F405272835890079B893 /* myTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myTunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC58F409272835890079B893 /* myTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTunesUITests.swift; sourceTree = "<group>"; };
 		BC58F40B272835890079B893 /* myTunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC58F41927283D910079B893 /* GenericBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBaseViewController.swift; sourceTree = "<group>"; };
+		BC58F41B27283E360079B893 /* GenericBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBaseView.swift; sourceTree = "<group>"; };
+		BC58F41D27283E5C0079B893 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		BC58F41F272847450079B893 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
+		BC58F421272847ED0079B893 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		BC58F3E7272835850079B893 /* myTunes */ = {
 			isa = PBXGroup;
 			children = (
+				BC58F41827283D7C0079B893 /* BaseComponents */,
 				BC58F3E8272835850079B893 /* AppDelegate.swift */,
 				BC58F3EA272835850079B893 /* SceneDelegate.swift */,
 				BC58F3EC272835850079B893 /* ViewController.swift */,
@@ -122,6 +133,18 @@
 				BC58F40B272835890079B893 /* myTunesUITestsLaunchTests.swift */,
 			);
 			path = myTunesUITests;
+			sourceTree = "<group>";
+		};
+		BC58F41827283D7C0079B893 /* BaseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BC58F41927283D910079B893 /* GenericBaseViewController.swift */,
+				BC58F41B27283E360079B893 /* GenericBaseView.swift */,
+				BC58F41D27283E5C0079B893 /* BaseView.swift */,
+				BC58F421272847ED0079B893 /* BaseCollectionViewCell.swift */,
+				BC58F41F272847450079B893 /* GenericValueProtocol.swift */,
+			);
+			path = BaseComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC58F3ED272835850079B893 /* ViewController.swift in Sources */,
+				BC58F422272847ED0079B893 /* BaseCollectionViewCell.swift in Sources */,
+				BC58F41A27283D910079B893 /* GenericBaseViewController.swift in Sources */,
 				BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */,
+				BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */,
+				BC58F41C27283E370079B893 /* GenericBaseView.swift in Sources */,
 				BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */,
+				BC58F420272847450079B893 /* GenericValueProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
