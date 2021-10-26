@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashViewController: GenericBaseViewController<SplashViewModel> {
+class SplashViewController: BaseViewController<SplashViewModel> {
     
     lazy var containerView: UIView = {
         let temp = UIView()

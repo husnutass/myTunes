@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let splashViewController = SplashViewBuilder.build {
-//            self.initHomeViewController()
+            self.initHomeViewController()
         }
         
         window?.rootViewController = splashViewController
@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func initHomeViewController() {
         DispatchQueue.main.async {
-            let navigationController = UINavigationController(rootViewController: ViewController())
+            let navigationController = UINavigationController(rootViewController: HomeViewBuilder.build())
             
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()

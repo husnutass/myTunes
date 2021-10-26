@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenericBaseViewController<V>: UIViewController {
+class BaseViewController<V>: UIViewController {
     
     var viewModel: V!
     
@@ -22,7 +22,7 @@ class GenericBaseViewController<V>: UIViewController {
     }
     
     func prepareViewControllerConfigurations() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
     }
     
 }
