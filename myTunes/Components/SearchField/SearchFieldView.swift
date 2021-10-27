@@ -30,12 +30,15 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         return temp
     }()
     
+    private lazy var searchFieldIconImageView: UIImageView = {
+        let temp = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+        return temp
+    }()
+    
     private lazy var searchFieldIconView: UIView = {
-        let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
-        imageView.image = SFSymbols.magnifyingglass.value
         let temp = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.addSubview(imageView)
+        temp.addSubview(searchFieldIconImageView)
         return temp
     }()
     
@@ -60,6 +63,7 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         super.loadViewData()
         guard let data = returnData() else { return }
         searchField.attributedPlaceholder = NSAttributedString(string: data.placeHolder, attributes: [.foregroundColor : UIColor.white])
+        searchFieldIconImageView.image = data.leftIcon
     }
     
     private func addComponents() {

@@ -19,7 +19,7 @@ class HomeView: GenericBaseView<HomeViewData> {
     }()
     
     private lazy var searchFieldView: SearchFieldView = {
-        let temp = SearchFieldView(data: SearchFieldData(placeHolder: "Search"))
+        let temp = SearchFieldView(data: SearchFieldData(placeHolder: "Search", leftIcon: SFSymbols.magnifyingglass.value))
         temp.translatesAutoresizingMaskIntoConstraints = false
         return temp
     }()
