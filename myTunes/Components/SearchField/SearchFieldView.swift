@@ -72,8 +72,8 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         containerView.addSubview(searchField)
         
         NSLayoutConstraint.activate([
-            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
             shadowContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         

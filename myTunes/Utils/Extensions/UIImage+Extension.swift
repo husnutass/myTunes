@@ -9,4 +9,8 @@ import UIKit
 
 extension UIImage {
     static let logo = UIImage(named: "logo")
+    static let movies = UIImage(named: "movies")
+    static let music = UIImage(named: "music")
+    static let apps = UIImage(named: "apps")
+    static let books = UIImage(named: "books")
 }
