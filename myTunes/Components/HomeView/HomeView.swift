@@ -12,7 +12,7 @@ class HomeView: GenericBaseView<HomeViewData> {
     private lazy var containerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.backgroundColor = .white
+        temp.backgroundColor = .background
         return temp
     }()
     
