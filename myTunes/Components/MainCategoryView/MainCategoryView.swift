@@ -21,7 +21,7 @@ class MainCategoryView: GenericBaseView<MainCategoryViewData> {
         temp.axis = .horizontal
         temp.alignment = .center
         temp.distribution = .fillEqually
-        temp.spacing = 10
+        temp.spacing = 15
         return temp
     }()
     
@@ -67,7 +67,6 @@ class MainCategoryView: GenericBaseView<MainCategoryViewData> {
         addSubview(containerView)
         containerView.addSubview(categoryStackView)
         
-//        containerView.expandView(to: self)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
