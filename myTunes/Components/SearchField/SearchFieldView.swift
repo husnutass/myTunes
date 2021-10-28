@@ -47,6 +47,7 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.backgroundColor = .primary
         temp.textColor = .white
+        temp.font = .setFont(fontType: .medium, size: 18)
         temp.clearButtonMode = .whileEditing
         temp.tintColor = .white
         temp.leftView = searchFieldIconView
