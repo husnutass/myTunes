@@ -71,7 +71,7 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textAlignment = .left
         temp.font = .setFont(fontType: .medium, size: 16)
-        temp.textColor = .white
+        temp.textColor = .silver
         return temp
     }()
     
@@ -80,7 +80,7 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textAlignment = .right
         temp.font = .setFont(fontType: .regular, size: 14)
-        temp.textColor = .white
+        temp.textColor = .silverlight
         return temp
     }()
     
