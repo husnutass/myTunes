@@ -49,7 +49,8 @@ class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textAlignment = .center
-        temp.font = .setFont(fontType: .black, size: 16)
+        temp.font = .setFont(fontType: .bold, size: 18)
+        temp.textColor = .white
         return temp
     }()
     
@@ -69,12 +70,11 @@ class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
     
     private func addComponents() {
         addSubview(categoryItemStackView)
-//        addSubview(shadowContainer)
         shadowContainer.addSubview(containerView)
         containerView.addSubview(imageView)
         
         let screenWidth = UIScreen.main.bounds.width
-        let itemWidth = (screenWidth/4)-20
+        let itemWidth = (screenWidth/4)-25
         
         NSLayoutConstraint.activate([
             shadowContainer.heightAnchor.constraint(equalToConstant: itemWidth),
