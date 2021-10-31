@@ -28,6 +28,10 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         homeView.expandView(to: view)
     }
     
+    private func openDetailView(trackId: Int) {
+        navigationController?.pushViewController(DetailViewBuilder.build(trackId: trackId), animated: true)
+    }
+    
     private func addViewModelListeners() {
         viewModel.subscribeViewState { [weak self] state in
             switch state {
@@ -40,9 +44,11 @@ class HomeViewController: BaseViewController<HomeViewModel> {
             }
         }
         
-//        viewModel.subscribeDetailViewState { [weak self] data in
-//            self?.fireDetailView(with: data)
-//        }
+        viewModel.subscribeDetailViewState { [weak self] data in
+            DispatchQueue.main.async {
+                self?.openDetailView(trackId: data)
+            }
+        }
         
         viewModel.subscribeCategoryChange { [weak self] category in
             let emptyHomeViewCategory: Category

@@ -8,7 +8,7 @@
 import DefaultNetworkOperationPackage
 import UIKit
 
-typealias SearchDataResultBlock = (Result<SearchDataResponse, ErrorResponse>) -> Void
+typealias SearchDataResponseBlock = (Result<SearchDataResponse, ErrorResponse>) -> Void
 
 class HomeViewModel {
     
@@ -18,8 +18,9 @@ class HomeViewModel {
     private var selectedCategory: MediaType = .movies
     private var searchText = ""
     private var dataRequest = SearchDataRequest()
+    private var detailViewState: ((Int) -> Void)?
     
-    private func getSearchData(with text: String, completion: @escaping SearchDataResultBlock) {
+    private func getSearchData(with text: String, completion: @escaping SearchDataResponseBlock) {
         homeViewState?(.loading)
         dataRequest.setTerm(term: text)
         dataRequest.setMedia(media: selectedCategory.rawValue)
@@ -67,7 +68,7 @@ class HomeViewModel {
         self?.getSearchData(with: self?.searchText ?? "", completion: self!.dataListener)
     }
     
-    lazy var dataListener: SearchDataResultBlock = { [weak self] result in
+    lazy var dataListener: SearchDataResponseBlock = { [weak self] result in
         self?.dataRequest.fetching = false
         switch result {
         case .failure(let error):
@@ -77,7 +78,7 @@ class HomeViewModel {
         }
     }
     
-    lazy var dataListenerWithOffset: SearchDataResultBlock = { [weak self] result in
+    lazy var dataListenerWithOffset: SearchDataResponseBlock = { [weak self] result in
         self?.dataRequest.fetching = false
         switch result {
         case .failure(let error):
@@ -93,6 +94,10 @@ class HomeViewModel {
     
     func subscribeCategoryChange(with completion: @escaping CategoryChangeBlock) {
         homeCategoryState = completion
+    }
+    
+    func subscribeDetailViewState(with completion: @escaping (Int) -> Void) {
+        detailViewState = completion
     }
 }
 
@@ -123,7 +128,7 @@ extension HomeViewModel: MainCollectionViewProtocol {
     
     func selectedItem(at index: Int) {
         guard let data = searchResponseData else { return }
-        print(data.results[index])
+        detailViewState?(data.results[index].trackId)
     }
     
 }

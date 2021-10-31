@@ -15,7 +15,7 @@ struct SearchDataResponse: Codable {
 
 // MARK: - SearchDataResult
 struct SearchDataResult: Codable {
-    let collectionName, trackName, formattedPrice, releaseDate, currentVersionReleaseDate: String?
+    let collectionName, trackName, formattedPrice, releaseDate, currentVersionReleaseDate, artistName, description, shortDescription, longDescription: String?
     let artworkUrl100: String
     let collectionPrice, price: Double?
     let trackId: Int
