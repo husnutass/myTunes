@@ -13,5 +13,6 @@ protocol MainCollectionViewProtocol: AnyObject {
     func getData(at index: Int) -> MainCollectionContentViewData?
     func getMoreData()
     func isLoadingCell(for index: Int) -> Bool
+    func selectedItem(at index: Int)
     
 }

@@ -69,6 +69,9 @@
 		BC794AB4272DF3470040B2FA /* EmptyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AB3272DF3470040B2FA /* EmptyHomeView.swift */; };
 		BC794AB6272DF35D0040B2FA /* EmptyHomeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AB5272DF35D0040B2FA /* EmptyHomeViewData.swift */; };
 		BC794ABA272DF8290040B2FA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AB9272DF8290040B2FA /* Category.swift */; };
+		BC794ABE272E220D0040B2FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794ABD272E220D0040B2FA /* DetailViewController.swift */; };
+		BC794AC0272E22180040B2FA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794ABF272E22180040B2FA /* DetailViewModel.swift */; };
+		BC794AC2272E22200040B2FA /* DetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AC1272E22200040B2FA /* DetailViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +156,9 @@
 		BC794AB3272DF3470040B2FA /* EmptyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHomeView.swift; sourceTree = "<group>"; };
 		BC794AB5272DF35D0040B2FA /* EmptyHomeViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHomeViewData.swift; sourceTree = "<group>"; };
 		BC794AB9272DF8290040B2FA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BC794ABD272E220D0040B2FA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BC794ABF272E22180040B2FA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		BC794AC1272E22200040B2FA /* DetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +289,7 @@
 		BC58F42C2728A2090079B893 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BC794ABB272E21E10040B2FA /* Detail */,
 				BC58F4372728BCAD0079B893 /* Home */,
 				BC58F42D2728A2100079B893 /* Splash */,
 			);
@@ -452,6 +459,16 @@
 			path = EmptyHomeView;
 			sourceTree = "<group>";
 		};
+		BC794ABB272E21E10040B2FA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BC794ABD272E220D0040B2FA /* DetailViewController.swift */,
+				BC794ABF272E22180040B2FA /* DetailViewModel.swift */,
+				BC794AC1272E22200040B2FA /* DetailViewBuilder.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +623,7 @@
 			files = (
 				BC794AB4272DF3470040B2FA /* EmptyHomeView.swift in Sources */,
 				BC794A57272983860040B2FA /* MainCategoryViewData.swift in Sources */,
+				BC794AC0272E22180040B2FA /* DetailViewModel.swift in Sources */,
 				BC58F4362728B9AA0079B893 /* UIImage+Extension.swift in Sources */,
 				BC58F422272847ED0079B893 /* BaseCollectionViewCell.swift in Sources */,
 				BC794A90272B34220040B2FA /* SearchServiceProvider.swift in Sources */,
@@ -618,6 +636,7 @@
 				BC794A7C272AC46A0040B2FA /* MainCollectionContentView.swift in Sources */,
 				BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */,
 				BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */,
+				BC794AC2272E22200040B2FA /* DetailViewBuilder.swift in Sources */,
 				BC794AB1272DD9D30040B2FA /* SearchDataResponse.swift in Sources */,
 				BC794A4F27297BB80040B2FA /* SFSymbols.swift in Sources */,
 				BC794A7E272AC4C30040B2FA /* MainCollectionContentViewData.swift in Sources */,
@@ -631,6 +650,7 @@
 				BC794AA5272D790B0040B2FA /* ViewState.swift in Sources */,
 				BC58F4292728908F0079B893 /* UIColor+Extension.swift in Sources */,
 				BC794A94272B39690040B2FA /* UrlHelper.swift in Sources */,
+				BC794ABE272E220D0040B2FA /* DetailViewController.swift in Sources */,
 				BC58F44327295C150079B893 /* SearchFieldData.swift in Sources */,
 				BC58F42B272892840079B893 /* UIView+Extension.swift in Sources */,
 				BC58F4342728B07B0079B893 /* SplashViewBuilder.swift in Sources */,

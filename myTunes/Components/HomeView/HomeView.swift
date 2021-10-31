@@ -112,4 +112,8 @@ extension HomeView: MainCollectionViewProtocol {
         return delegate.isLoadingCell(for: index)
     }
     
+    func selectedItem(at index: Int) {
+        delegate?.selectedItem(at: index)
+    }
+    
 }

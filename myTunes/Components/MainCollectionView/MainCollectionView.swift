@@ -93,6 +93,10 @@ extension MainCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
             delegate.getMoreData()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedItem(at: indexPath.row)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

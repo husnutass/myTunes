@@ -121,4 +121,9 @@ extension HomeViewModel: MainCollectionViewProtocol {
         return index >= data.resultCount
     }
     
+    func selectedItem(at index: Int) {
+        guard let data = searchResponseData else { return }
+        print(data.results[index])
+    }
+    
 }
