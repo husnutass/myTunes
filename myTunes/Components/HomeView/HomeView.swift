@@ -90,6 +90,10 @@ class HomeView: GenericBaseView<HomeViewData> {
         collectionView.setEmptyHomeViewData(by: data)
     }
     
+    func scrollCollectionToTop() {
+        collectionView.scrollCollectionToTop()
+    }
+    
 }
 
 // MARK: - MainCollectionViewProtocol

@@ -53,24 +53,23 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
     }()
     
     private lazy var infoStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [detailNameLabel, artistNameLabel,  collectionLabelStackView])
+        let temp = UIStackView(arrangedSubviews: [detailNameLabel, artistNameLabel, emptyStackView, collectionLabelStackView])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.spacing = 8
+        temp.spacing = 5
         temp.axis = .vertical
-        temp.distribution = .fill
+        temp.distribution = .equalSpacing
         temp.alignment = .fill
         return temp
     }()
     
     private lazy var detailNameLabel: UILabel = {
-        let temp = UILabel()
+        let temp = UILabel(frame: .zero)
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textAlignment = .left
         temp.lineBreakMode = .byTruncatingTail
         temp.numberOfLines = 2
         temp.font = .setFont(fontType: .bold, size: 18)
         temp.textColor = .white
-        temp.sizeToFit()
         return temp
     }()
     
@@ -81,7 +80,16 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
         temp.lineBreakMode = .byTruncatingTail
         temp.numberOfLines = 2
         temp.font = .setFont(fontType: .bold, size: 16)
-        temp.textColor = .blue
+        return temp
+    }()
+    
+    private lazy var emptyStackView: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.spacing = 20
+        temp.axis = .vertical
+        temp.distribution = .fill
+        temp.alignment = .fill
         return temp
     }()
     
@@ -127,6 +135,7 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
         collectionDateLabel.text = formattedDate
         imageView.loadImage(from: data.imageUrl, UIImage.logo100)
         artistNameLabel.text = data.artistName
+        artistNameLabel.textColor = data.categoryColor ?? .movies
     }
     
     private func addComponents() {

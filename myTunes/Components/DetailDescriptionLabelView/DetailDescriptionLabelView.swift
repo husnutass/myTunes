@@ -22,7 +22,7 @@ class DetailDescriptionLabelView: GenericBaseView<DetailDescriptionLabelViewData
         temp.axis = .vertical
         temp.alignment = .fill
         temp.distribution = .fill
-        temp.spacing = 10
+        temp.spacing = 20
         return temp
     }()
     
@@ -32,6 +32,7 @@ class DetailDescriptionLabelView: GenericBaseView<DetailDescriptionLabelViewData
         temp.textColor = .white
         temp.font = .setFont(fontType: .bold, size: 20)
         temp.textAlignment = .left
+        temp.lineBreakMode = .byWordWrapping
         return temp
     }()
     
@@ -42,6 +43,8 @@ class DetailDescriptionLabelView: GenericBaseView<DetailDescriptionLabelViewData
         temp.font = .setFont(fontType: .regular, size: 16)
         temp.textAlignment = .left
         temp.numberOfLines = 0
+        temp.lineBreakMode = .byWordWrapping
+        temp.setContentHuggingPriority(UILayoutPriority(rawValue: .infinity), for: .vertical)
         return temp
     }()
     
@@ -54,7 +57,7 @@ class DetailDescriptionLabelView: GenericBaseView<DetailDescriptionLabelViewData
         super.loadViewData()
         guard let data = returnData() else { return }
         titleLabel.text = data.titleText
-        descriptionLabel.text = data.descriptionText
+        descriptionLabel.text = data.descriptionText.htmlToAttributedString?.string
     }
     
     private func addComponents() {

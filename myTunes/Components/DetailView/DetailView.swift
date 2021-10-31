@@ -17,17 +17,23 @@ class DetailView: GenericBaseView<DetailViewData> {
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [topView, descriptionView])
+        let temp = UIStackView(arrangedSubviews: [topView])
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.axis = .vertical
         temp.alignment = .fill
         temp.distribution = .fill
-        temp.spacing = 30
+        temp.spacing = 35
         return temp
     }()
     
     private lazy var topView: DetailTopView = {
         let temp = DetailTopView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        return temp
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let temp = UIScrollView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         return temp
     }()
@@ -53,14 +59,26 @@ class DetailView: GenericBaseView<DetailViewData> {
     private func addComponents() {
         addSubview(containerView)
         containerView.addSubview(mainStackView)
+        addSubview(scrollView)
+        scrollView.addSubview(descriptionView)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25)
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            
+            scrollView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 30),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scrollView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
+            
+            descriptionView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
         mainStackView.expandView(to: containerView)
+        descriptionView.expandView(to: scrollView)
+        
     }
     
 }

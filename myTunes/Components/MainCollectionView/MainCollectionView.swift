@@ -72,6 +72,10 @@ class MainCollectionView: GenericBaseView<MainCollectionViewData> {
         emptyHomeView.setData(by: data)
     }
     
+    func scrollCollectionToTop() {
+        collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -102,7 +106,7 @@ extension MainCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MainCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.width - 70) / 2
+        let width = (UIScreen.main.bounds.width - 60) / 2
         return CGSize(width: width, height: 250)
     }
 }

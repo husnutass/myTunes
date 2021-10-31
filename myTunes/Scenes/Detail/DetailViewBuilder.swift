@@ -9,8 +9,8 @@ import UIKit
 
 class DetailViewBuilder {
     
-    class func build(trackId: Int) -> UIViewController {
-        let viewModel = DetailViewModel(trackId: trackId)
+    class func build(trackId: Int, activeViewCategory: Category, activeViewCategoryColor: UIColor?) -> UIViewController {
+        let viewModel = DetailViewModel(trackId: trackId, activeViewCategory: activeViewCategory, activeViewCategoryColor: activeViewCategoryColor)
         return DetailViewController(viewModel: viewModel)
     }
     
