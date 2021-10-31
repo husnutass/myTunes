@@ -9,6 +9,8 @@ import UIKit
 
 class HomeView: GenericBaseView<HomeViewData> {
     
+    weak var delegate: MainCollectionViewProtocol?
+    
     private lazy var containerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
@@ -27,15 +29,22 @@ class HomeView: GenericBaseView<HomeViewData> {
     }()
     
     private lazy var searchFieldView: SearchFieldView = {
-        let temp = SearchFieldView(data: SearchFieldData(placeHolder: "Search", leftIcon: SFSymbols.magnifyingglass.value))
+        let temp = SearchFieldView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.heightAnchor.constraint(equalToConstant: 80).isActive = true
         return temp
     }()
     
     private lazy var mainCategoryView: MainCategoryView = {
-        let temp = MainCategoryView(data: MainCategoryViewData(movies: MainCategoryItemViewData(categoryColor: .movies, categoryImage: .movies, categoryName: "Movies"), music: MainCategoryItemViewData(categoryColor: .music, categoryImage: .music, categoryName: "Music"), apps: MainCategoryItemViewData(categoryColor: .apps, categoryImage: .apps, categoryName: "Apps"), books: MainCategoryItemViewData(categoryColor: .books, categoryImage: .books, categoryName: "Books")))
+        let temp = MainCategoryView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        return temp
+    }()
+    
+    private lazy var collectionView: MainCollectionView = {
+        let temp = MainCollectionView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.delegate = self
         return temp
     }()
     
@@ -46,23 +55,61 @@ class HomeView: GenericBaseView<HomeViewData> {
     
     override func loadViewData() {
         super.loadViewData()
+        guard let data = returnData() else { return }
+        searchFieldView.setData(by: data.searchFieldData)
+        mainCategoryView.setData(by: data.mainCategoryViewData)
     }
     
     private func addComponents() {
         addSubview(containerView)
         containerView.addSubview(mainStackView)
+        containerView.addSubview(collectionView)
         
-//        containerView.expandView(to: self, top: safeAreaInsets.top, bottom: -safeAreaInsets.bottom, leading: 25, trailing: -25)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-            containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            containerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
+            collectionView.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 20),
+            collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
-        
-        mainStackView.expandView(to: containerView)
-        
-        
+    }
+    
+    func reloadCollectionView() {
+        collectionView.reloadCollectionView()
+    }
+    
+    func setEmptyHomeViewData(by data: EmptyHomeViewData) {
+        collectionView.setEmptyHomeViewData(by: data)
+    }
+    
+}
+
+// MARK: - MainCollectionViewProtocol
+extension HomeView: MainCollectionViewProtocol {
+    
+    func getNumberOfItem(in section: Int) -> Int {
+        delegate?.getNumberOfItem(in: section) ?? 0
+    }
+    
+    func getData(at index: Int) -> MainCollectionContentViewData? {
+        delegate?.getData(at: index)
+    }
+    
+    func getMoreData() {
+        delegate?.getMoreData()
+    }
+    
+    func isLoadingCell(for index: Int) -> Bool {
+        guard let delegate = delegate else { return false }
+        return delegate.isLoadingCell(for: index)
     }
     
 }

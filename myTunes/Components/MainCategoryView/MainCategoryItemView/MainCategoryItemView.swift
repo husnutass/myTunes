@@ -9,11 +9,21 @@ import UIKit
 
 class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
     
+    weak var delegate: MainCategoryView?
+    
+    private lazy var containerView: UIView = {
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        return temp
+    }()
+    
     private lazy var categoryItemStackView: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [shadowContainer,categoryNameLabel])
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.spacing = 5
         temp.axis = .vertical
+        temp.distribution = .fill
+        temp.alignment = .fill
         return temp
     }()
     
@@ -28,7 +38,7 @@ class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
         return temp
     }()
     
-    private lazy var containerView: UIView = {
+    private lazy var imageContainerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.backgroundColor = .white
@@ -59,19 +69,25 @@ class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
         addComponents()
     }
     
+    override func setupViewConfigurations() {
+        addTapGesture()
+    }
+    
     override func loadViewData() {
         super.loadViewData()
         guard let data = returnData() else { return }
         imageView.image = data.categoryImage
-        containerView.layer.borderColor = data.categoryColor?.cgColor
         categoryNameLabel.text = data.categoryName
-        //        containerView.layer.borderWidth = 0
+        if data.categoryType == .movies {
+            selectCategory()
+        }
     }
     
     private func addComponents() {
-        addSubview(categoryItemStackView)
-        shadowContainer.addSubview(containerView)
-        containerView.addSubview(imageView)
+        addSubview(containerView)
+        containerView.addSubview(categoryItemStackView)
+        shadowContainer.addSubview(imageContainerView)
+        imageContainerView.addSubview(imageView)
         
         let screenWidth = UIScreen.main.bounds.width
         let itemWidth = (screenWidth/4)-25
@@ -81,9 +97,44 @@ class MainCategoryItemView: GenericBaseView<MainCategoryItemViewData> {
             shadowContainer.widthAnchor.constraint(equalToConstant: itemWidth)
         ])
         
-        categoryItemStackView.expandView(to: self)
-        containerView.expandView(to: shadowContainer)
-        imageView.expandView(to: containerView)
+        containerView.expandView(to: self)
+        categoryItemStackView.expandView(to: containerView)
+        imageContainerView.expandView(to: shadowContainer)
+        imageView.expandView(to: imageContainerView)
     }
     
+    private func selectCategory() {
+        guard let data = returnData() else { return }
+        delegate?.returnData()?.categoryChangeListener?(data.categoryType)
+        delegate?.resetCategoryBorderColors()
+        imageContainerView.layer.borderColor = data.categoryColor?.cgColor
+    }
+    
+    func resetBorderColor() {
+        imageContainerView.layer.borderColor = UIColor.background?.cgColor
+    }
+    
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension MainCategoryItemView: UIGestureRecognizerDelegate {
+    private func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
+        tapGesture.delegate = self
+        addGestureRecognizer(tapGesture)
+    }
+    
+    @objc fileprivate func categoryTapped(_ sender: UITapGestureRecognizer) {
+        isUserInteractionEnabled = false
+        startTappedAnimation { finish in
+            if finish {
+                self.isUserInteractionEnabled = true
+                self.selectCategory()
+            }
+        }
+    }
+}
+
+fileprivate extension Selector {
+    static let buttonTappedSelector = #selector(MainCategoryItemView.categoryTapped)
 }

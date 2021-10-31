@@ -11,15 +11,15 @@ class BaseCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViewConfigurations()
+        addMajorViewComponents()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupViewConfigurations()
+        addMajorViewComponents()
     }
     
-    func setupViewConfigurations() {}
+    func addMajorViewComponents() {}
     
     static var identifier: String {
         return String(describing: self)

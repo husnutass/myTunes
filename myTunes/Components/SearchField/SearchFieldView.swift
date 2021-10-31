@@ -9,6 +9,8 @@ import UIKit
 
 class SearchFieldView: GenericBaseView<SearchFieldData> {
     
+    private var searchWorkItem: DispatchWorkItem?
+    
     private lazy var shadowContainer: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +54,7 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         temp.tintColor = .white
         temp.leftView = searchFieldIconView
         temp.leftViewMode = .unlessEditing
+        temp.addTarget(self, action: .catchTextFieldChanges, for: .editingChanged)
         return temp
     }()
     
@@ -81,5 +84,23 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         containerView.expandView(to: shadowContainer)
         searchField.expandView(to: containerView, top: 10, bottom: -10, leading: 4, trailing: -4)
     }
+
+    @objc func catchSearchFieldChanges(_ sender: UITextField) {
+        guard let searchText = sender.text else { return }
+        
+        searchWorkItem?.cancel()
+        
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.returnData()?.searchFieldChangeListener?(searchText)
+        }
+        
+        searchWorkItem = workItem
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: workItem)
+    }
     
+}
+
+fileprivate extension Selector {
+    static let catchTextFieldChanges = #selector(SearchFieldView.catchSearchFieldChanges)
 }

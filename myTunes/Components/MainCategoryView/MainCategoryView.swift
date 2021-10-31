@@ -28,24 +28,28 @@ class MainCategoryView: GenericBaseView<MainCategoryViewData> {
     private lazy var moviesCategoryView: MainCategoryItemView = {
         let temp = MainCategoryItemView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.delegate = self
         return temp
     }()
     
     private lazy var musicCategoryView: MainCategoryItemView = {
         let temp = MainCategoryItemView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.delegate = self
         return temp
     }()
     
     private lazy var appsCategoryView: MainCategoryItemView = {
         let temp = MainCategoryItemView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.delegate = self
         return temp
     }()
     
     private lazy var booksCategoryView: MainCategoryItemView = {
         let temp = MainCategoryItemView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.delegate = self
         return temp
     }()
     
@@ -70,10 +74,18 @@ class MainCategoryView: GenericBaseView<MainCategoryViewData> {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         categoryStackView.expandView(to: containerView)
+    }
+    
+    func resetCategoryBorderColors() {
+        moviesCategoryView.resetBorderColor()
+        musicCategoryView.resetBorderColor()
+        appsCategoryView.resetBorderColor()
+        booksCategoryView.resetBorderColor()
     }
     
 }
