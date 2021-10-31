@@ -83,6 +83,7 @@
 		BC794AF3272F0FD50040B2FA /* HomeSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AEE272F0FD50040B2FA /* HomeSceneTests.swift */; };
 		BC794AF4272F0FD50040B2FA /* moviesData.json in Resources */ = {isa = PBXBuildFile; fileRef = BC794AF0272F0FD50040B2FA /* moviesData.json */; };
 		BC794AF5272F0FD50040B2FA /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AF2272F0FD50040B2FA /* ResourceLoader.swift */; };
+		BC794AF8272F18030040B2FA /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AF7272F18030040B2FA /* MockSearchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,7 @@
 		BC794AEE272F0FD50040B2FA /* HomeSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSceneTests.swift; sourceTree = "<group>"; };
 		BC794AF0272F0FD50040B2FA /* moviesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviesData.json; sourceTree = "<group>"; };
 		BC794AF2272F0FD50040B2FA /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
+		BC794AF7272F18030040B2FA /* MockSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockSearchService.swift; path = myTunesTests/Resources/MockSearchService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,9 +553,10 @@
 		BC794AED272F0FD50040B2FA /* myTunesTests */ = {
 			isa = PBXGroup;
 			children = (
-				BC794AEE272F0FD50040B2FA /* HomeSceneTests.swift */,
-				BC794AEF272F0FD50040B2FA /* Resources */,
 				BC794AF1272F0FD50040B2FA /* Utils */,
+				BC794AEF272F0FD50040B2FA /* Resources */,
+				BC794AF6272F17DD0040B2FA /* Mocks */,
+				BC794AEE272F0FD50040B2FA /* HomeSceneTests.swift */,
 			);
 			path = myTunesTests;
 			sourceTree = "<group>";
@@ -572,6 +575,14 @@
 				BC794AF2272F0FD50040B2FA /* ResourceLoader.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BC794AF6272F17DD0040B2FA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BC794AF7272F18030040B2FA /* MockSearchService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -787,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC794AF8272F18030040B2FA /* MockSearchService.swift in Sources */,
 				BC794AF5272F0FD50040B2FA /* ResourceLoader.swift in Sources */,
 				BC794AF3272F0FD50040B2FA /* HomeSceneTests.swift in Sources */,
 			);
@@ -955,6 +967,7 @@
 				DEVELOPMENT_TEAM = 2BAW85345C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myTunes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = myTunes;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -983,6 +996,7 @@
 				DEVELOPMENT_TEAM = 2BAW85345C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myTunes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = myTunes;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
