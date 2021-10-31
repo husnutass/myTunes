@@ -19,7 +19,7 @@ class SplashViewModel {
     
     func fireApplicationInitiateProcess() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             self?.splashFinalizeListener?()
         }
         
