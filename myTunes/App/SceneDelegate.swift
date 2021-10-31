@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func initHomeViewController() {
         DispatchQueue.main.async {
             let navigationController = UINavigationController(rootViewController: HomeViewBuilder.build())
-            
+            navigationController.navigationBar.tintColor = .white
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }

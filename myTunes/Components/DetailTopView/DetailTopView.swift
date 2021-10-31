@@ -1,13 +1,13 @@
 //
-//  MainCollectionContentView.swift
+//  DetailTopView.swift
 //  myTunes
 //
-//  Created by Hüsnü Taş on 28.10.2021.
+//  Created by Hüsnü Taş on 31.10.2021.
 //
 
 import UIKit
 
-class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> {
+class DetailTopView: GenericBaseView<DetailTopViewData> {
     
     private lazy var containerView: UIView = {
         let temp = UIView()
@@ -22,12 +22,12 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
         return temp
     }()
     
-    private lazy var collectionContentStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageContainerView, collectionNameLabel, collectionLabelStackView])
+    private lazy var mainStackView: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [imageContainerView, infoStackView])
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.spacing = 8
-        temp.axis = .vertical
-        temp.distribution = .fill
+        temp.axis = .horizontal
+        temp.distribution = .fillEqually
         temp.alignment = .fill
         return temp
     }()
@@ -52,14 +52,44 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
         return temp
     }()
     
-    private lazy var collectionNameLabel: UILabel = {
-        let temp = UILabel()
+    private lazy var infoStackView: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [detailNameLabel, artistNameLabel, emptyStackView, collectionLabelStackView])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.spacing = 5
+        temp.axis = .vertical
+        temp.distribution = .equalSpacing
+        temp.alignment = .fill
+        return temp
+    }()
+    
+    private lazy var detailNameLabel: UILabel = {
+        let temp = UILabel(frame: .zero)
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textAlignment = .left
         temp.lineBreakMode = .byTruncatingTail
         temp.numberOfLines = 2
         temp.font = .setFont(fontType: .bold, size: 18)
         temp.textColor = .white
+        return temp
+    }()
+    
+    private lazy var artistNameLabel: UILabel = {
+        let temp = UILabel()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.textAlignment = .left
+        temp.lineBreakMode = .byTruncatingTail
+        temp.numberOfLines = 2
+        temp.font = .setFont(fontType: .bold, size: 16)
+        return temp
+    }()
+    
+    private lazy var emptyStackView: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.spacing = 20
+        temp.axis = .vertical
+        temp.distribution = .fill
+        temp.alignment = .fill
         return temp
     }()
     
@@ -99,20 +129,22 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
     override func loadViewData() {
         super.loadViewData()
         guard let data = returnData() else { return }
-        collectionNameLabel.text = data.name
+        detailNameLabel.text = data.name
         collectionPriceLabel.text = data.price
         let formattedDate = formatDate(date: data.releaseDate)
         collectionDateLabel.text = formattedDate
         imageView.loadImage(from: data.imageUrl, UIImage.logo100)
+        artistNameLabel.text = data.artistName
+        artistNameLabel.textColor = data.categoryColor ?? .movies
     }
     
     private func addComponents() {
         addSubview(containerView)
-        containerView.addSubview(collectionContentStackView)
+        containerView.addSubview(mainStackView)
         imageContainerView.addSubview(imageView)
         
         containerView.expandView(to: self)
-        collectionContentStackView.expandView(to: containerView, with: 10)
+        mainStackView.expandView(to: containerView, with: 10)
         imageView.centerView(to: imageContainerView)
     }
     

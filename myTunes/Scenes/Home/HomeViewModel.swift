@@ -8,7 +8,7 @@
 import DefaultNetworkOperationPackage
 import UIKit
 
-typealias SearchDataResultBlock = (Result<SearchDataResponse, ErrorResponse>) -> Void
+typealias SearchDataResponseBlock = (Result<SearchDataResponse, ErrorResponse>) -> Void
 
 class HomeViewModel {
     
@@ -18,10 +18,17 @@ class HomeViewModel {
     private var selectedCategory: MediaType = .movies
     private var searchText = ""
     private var dataRequest = SearchDataRequest()
+    private var detailViewState: ((Int) -> Void)?
+    private var collectionScrollState: (VoidBlock)?
     
-    private func getSearchData(with text: String, completion: @escaping SearchDataResultBlock) {
+    // MARK: - API Call
+    private func getSearchData(completion: @escaping SearchDataResponseBlock) {
+        guard searchText.count > 2 else {
+            resetSearch()
+            return
+        }
         homeViewState?(.loading)
-        dataRequest.setTerm(term: text)
+        dataRequest.setTerm(term: searchText)
         dataRequest.setMedia(media: selectedCategory.rawValue)
         do {
             let urlRequest = try SearchServiceProvider(requestData: dataRequest).returnUrlRequest()
@@ -32,7 +39,7 @@ class HomeViewModel {
     }
     
     private func getSearchDataWithOffset() {
-        getSearchData(with: searchText, completion: dataListenerWithOffset)
+        getSearchData(completion: dataListenerWithOffset)
     }
     
     private func dataHandler(with response: SearchDataResponse) {
@@ -50,24 +57,29 @@ class HomeViewModel {
         return MainCollectionContentViewData(imageUrl: data.artworkUrl100, name: data.collectionName ?? data.trackName ?? "", price: data.formattedPrice ?? "$\(data.collectionPrice ?? data.price ?? 0.0)", releaseDate: data.releaseDate ?? data.currentVersionReleaseDate ?? "")
     }
     
+    private func resetSearch() {
+        searchResponseData = nil
+        dataRequest.setOffset(offset: 0)
+        homeViewState?(.done)
+    }
+    
+    // MARK: - Listeners
     lazy var searchFieldChangeListener: SearchFieldChangeBlock = { [weak self] text in
+        self?.collectionScrollState?()
+        self?.resetSearch()
         self?.searchText = text ?? ""
-        if (self?.searchText.count)! > 2 {
-            self?.getSearchData(with: self!.searchText, completion: self!.dataListener)
-        } else {
-            self?.searchResponseData = nil
-            self?.homeViewState?(.done)
-        }
+        self?.getSearchData(completion: self!.dataListener)
     }
     
     lazy var categoryChangeListener: CategoryChangeBlock = { [weak self] category in
+        self?.collectionScrollState?()
+        self?.resetSearch()
         self?.selectedCategory = category
-        self?.dataRequest.setOffset(offset: 0)
         self?.homeCategoryState?(category)
-        self?.getSearchData(with: self?.searchText ?? "", completion: self!.dataListener)
+        self?.getSearchData(completion: self!.dataListener)
     }
     
-    lazy var dataListener: SearchDataResultBlock = { [weak self] result in
+    lazy var dataListener: SearchDataResponseBlock = { [weak self] result in
         self?.dataRequest.fetching = false
         switch result {
         case .failure(let error):
@@ -77,7 +89,7 @@ class HomeViewModel {
         }
     }
     
-    lazy var dataListenerWithOffset: SearchDataResultBlock = { [weak self] result in
+    lazy var dataListenerWithOffset: SearchDataResponseBlock = { [weak self] result in
         self?.dataRequest.fetching = false
         switch result {
         case .failure(let error):
@@ -87,12 +99,21 @@ class HomeViewModel {
         }
     }
     
+    // MARK: - Subscribables
     func subscribeViewState(with completion: @escaping (ViewState) -> Void) {
         homeViewState = completion
     }
     
     func subscribeCategoryChange(with completion: @escaping CategoryChangeBlock) {
         homeCategoryState = completion
+    }
+    
+    func subscribeDetailViewState(with completion: @escaping (Int) -> Void) {
+        detailViewState = completion
+    }
+    
+    func subscribeCollectionScroll(with completion: @escaping VoidBlock) {
+        collectionScrollState = completion
     }
 }
 
@@ -119,6 +140,11 @@ extension HomeViewModel: MainCollectionViewProtocol {
     func isLoadingCell(for index: Int) -> Bool {
         guard let data = searchResponseData else { return false }
         return index >= data.resultCount
+    }
+    
+    func selectedItem(at index: Int) {
+        guard let data = searchResponseData else { return }
+        detailViewState?(data.results[index].trackId)
     }
     
 }

@@ -90,6 +90,10 @@ class HomeView: GenericBaseView<HomeViewData> {
         collectionView.setEmptyHomeViewData(by: data)
     }
     
+    func scrollCollectionToTop() {
+        collectionView.scrollCollectionToTop()
+    }
+    
 }
 
 // MARK: - MainCollectionViewProtocol
@@ -110,6 +114,10 @@ extension HomeView: MainCollectionViewProtocol {
     func isLoadingCell(for index: Int) -> Bool {
         guard let delegate = delegate else { return false }
         return delegate.isLoadingCell(for: index)
+    }
+    
+    func selectedItem(at index: Int) {
+        delegate?.selectedItem(at: index)
     }
     
 }
