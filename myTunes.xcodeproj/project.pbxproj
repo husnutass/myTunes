@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC20A8082742992C00E3EDE8 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */; };
 		BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F3E8272835850079B893 /* AppDelegate.swift */; };
 		BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F3EA272835850079B893 /* SceneDelegate.swift */; };
 		BC58F3F2272835880079B893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC58F3F1272835880079B893 /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		BC58F3E5272835850079B893 /* myTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC58F3E8272835850079B893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC58F3EA272835850079B893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				BC794A782729F5580040B2FA /* UIFont+Extension.swift */,
 				BC794AA6272DB47E0040B2FA /* UIImageView+Extension.swift */,
 				BC794AD8272ED1300040B2FA /* String+Extension.swift */,
+				BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				BC794A7E272AC4C30040B2FA /* MainCollectionContentViewData.swift in Sources */,
 				BC794A792729F5580040B2FA /* UIFont+Extension.swift in Sources */,
 				BC58F41C27283E370079B893 /* GenericBaseView.swift in Sources */,
+				BC20A8082742992C00E3EDE8 /* UITextField+Extension.swift in Sources */,
 				BC58F43D2728BD4C0079B893 /* HomeViewBuilder.swift in Sources */,
 				BC794A81272AF50A0040B2FA /* MainCollectionView.swift in Sources */,
 				BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */,

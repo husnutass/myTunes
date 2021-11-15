@@ -56,6 +56,7 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         temp.leftViewMode = .unlessEditing
         temp.addTarget(self, action: .catchTextFieldChanges, for: .editingChanged)
         temp.delegate = self
+        temp.addDoneButtonOnKeyboard()
         return temp
     }()
     
