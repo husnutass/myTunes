@@ -55,6 +55,7 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         temp.leftView = searchFieldIconView
         temp.leftViewMode = .unlessEditing
         temp.addTarget(self, action: .catchTextFieldChanges, for: .editingChanged)
+        temp.delegate = self
         return temp
     }()
     
@@ -84,6 +85,11 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
         containerView.expandView(to: shadowContainer)
         searchField.expandView(to: containerView, top: 10, bottom: -10, leading: 4, trailing: -4)
     }
+    
+    public func removeFocus() {
+        guard searchField.isFirstResponder else { return }
+        searchField.resignFirstResponder()
+    }
 
     @objc func catchSearchFieldChanges(_ sender: UITextField) {
         guard let searchText = sender.text else { return }
@@ -103,4 +109,12 @@ class SearchFieldView: GenericBaseView<SearchFieldData> {
 
 fileprivate extension Selector {
     static let catchTextFieldChanges = #selector(SearchFieldView.catchSearchFieldChanges)
+}
+
+// MARK: - UITextFieldDelegate
+extension SearchFieldView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }

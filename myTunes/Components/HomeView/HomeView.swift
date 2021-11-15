@@ -53,6 +53,10 @@ class HomeView: GenericBaseView<HomeViewData> {
         addComponents()
     }
     
+    override func setupViewConfigurations() {
+        addTapGesture()
+    }
+    
     override func loadViewData() {
         super.loadViewData()
         guard let data = returnData() else { return }
@@ -120,4 +124,28 @@ extension HomeView: MainCollectionViewProtocol {
         delegate?.selectedItem(at: index)
     }
     
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension HomeView: UIGestureRecognizerDelegate {
+    private func addTapGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: .homeViewInteractionSelector)
+    
+        panGesture.delegate = self
+        addGestureRecognizer(panGesture)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    
+    @objc fileprivate func homeViewInteracted(_ sender: UIGestureRecognizer) {
+        self.searchFieldView.removeFocus()
+    }
+    
+}
+
+fileprivate extension Selector {
+    static let homeViewInteractionSelector = #selector(HomeView.homeViewInteracted)
 }
