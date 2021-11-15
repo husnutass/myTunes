@@ -54,7 +54,7 @@ class HomeView: GenericBaseView<HomeViewData> {
     }
     
     override func setupViewConfigurations() {
-        addTapGesture()
+        addPanGesture()
     }
     
     override func loadViewData() {
@@ -128,7 +128,7 @@ extension HomeView: MainCollectionViewProtocol {
 
 // MARK: - UIGestureRecognizerDelegate
 extension HomeView: UIGestureRecognizerDelegate {
-    private func addTapGesture() {
+    private func addPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: .homeViewInteractionSelector)
     
         panGesture.delegate = self
