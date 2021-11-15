@@ -146,6 +146,7 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
         containerView.expandView(to: self)
         mainStackView.expandView(to: containerView, with: 10)
         imageView.centerView(to: imageContainerView)
+        collectionPriceLabel.widthAnchor.constraint(equalTo: collectionLabelStackView.widthAnchor, multiplier: 0.4).isActive = true
     }
     
     private func formatDate(date: String) -> String {
