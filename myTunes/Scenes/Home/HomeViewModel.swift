@@ -32,7 +32,7 @@ class HomeViewModel {
         dataRequest.setMedia(media: selectedCategory.rawValue)
         do {
             let urlRequest = try SearchServiceProvider(requestData: dataRequest).returnUrlRequest()
-            APIManager.shared.executeRequest(urlRequest: urlRequest, completion: completion)
+            ApiManagerBuilder.build().executeRequest(urlRequest: urlRequest, completion: completion)
         } catch let error {
             print("error : \(error)")
         }
