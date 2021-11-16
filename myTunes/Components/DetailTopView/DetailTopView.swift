@@ -86,7 +86,7 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
     private lazy var emptyStackView: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.spacing = 20
+        temp.spacing = 10
         temp.axis = .vertical
         temp.distribution = .fill
         temp.alignment = .fill
@@ -146,7 +146,11 @@ class DetailTopView: GenericBaseView<DetailTopViewData> {
         containerView.expandView(to: self)
         mainStackView.expandView(to: containerView, with: 10)
         imageView.centerView(to: imageContainerView)
-        collectionPriceLabel.widthAnchor.constraint(equalTo: collectionLabelStackView.widthAnchor, multiplier: 0.4).isActive = true
+        
+        NSLayoutConstraint.activate([
+            collectionPriceLabel.widthAnchor.constraint(equalTo: collectionLabelStackView.widthAnchor, multiplier: 0.4),
+            artistNameLabel.topAnchor.constraint(equalTo: detailNameLabel.bottomAnchor, constant: 5)
+        ])
     }
     
     private func formatDate(date: String) -> String {
