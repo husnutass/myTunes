@@ -5,9 +5,9 @@
         "package": "DefaultNetworkOperationPackage",
         "repositoryURL": "https://github.com/husnutass/DefaultNetworkOperationPackage",
         "state": {
-          "branch": "main",
+          "branch": null,
           "revision": "6bc397b6b30b8b128e04cbd7b8ac063d20a0a837",
-          "version": null
+          "version": "1.1.1"
         }
       },
       {
