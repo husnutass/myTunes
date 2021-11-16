@@ -50,7 +50,7 @@ class MainCollectionView: GenericBaseView<MainCollectionViewData> {
     }
     
     private func isEmptyCollectionView() -> Bool {
-        return (delegate?.getNumberOfItem(in: 0) ?? 0) > 0
+        return (delegate?.getNumberOfItem() ?? 0) > 0
     }
     
     private func hideEmptyHomeView() {
@@ -81,7 +81,7 @@ class MainCollectionView: GenericBaseView<MainCollectionViewData> {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension MainCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        delegate?.getNumberOfItem(in: section) ?? 0
+        delegate?.getNumberOfItem() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

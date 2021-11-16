@@ -103,8 +103,8 @@ class HomeView: GenericBaseView<HomeViewData> {
 // MARK: - MainCollectionViewProtocol
 extension HomeView: MainCollectionViewProtocol {
     
-    func getNumberOfItem(in section: Int) -> Int {
-        delegate?.getNumberOfItem(in: section) ?? 0
+    func getNumberOfItem() -> Int {
+        delegate?.getNumberOfItem() ?? 0
     }
     
     func getData(at index: Int) -> MainCollectionContentViewData? {
