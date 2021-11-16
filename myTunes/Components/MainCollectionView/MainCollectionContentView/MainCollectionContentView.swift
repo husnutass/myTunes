@@ -114,6 +114,7 @@ class MainCollectionContentView: GenericBaseView<MainCollectionContentViewData> 
         containerView.expandView(to: self)
         collectionContentStackView.expandView(to: containerView, with: 10)
         imageView.centerView(to: imageContainerView)
+        collectionPriceLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
     }
     
     private func formatDate(date: String) -> String {

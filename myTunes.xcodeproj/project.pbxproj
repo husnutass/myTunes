@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC20A8082742992C00E3EDE8 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */; };
 		BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F3E8272835850079B893 /* AppDelegate.swift */; };
 		BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58F3EA272835850079B893 /* SceneDelegate.swift */; };
 		BC58F3F2272835880079B893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC58F3F1272835880079B893 /* Assets.xcassets */; };
@@ -84,6 +85,10 @@
 		BC794AF4272F0FD50040B2FA /* moviesData.json in Resources */ = {isa = PBXBuildFile; fileRef = BC794AF0272F0FD50040B2FA /* moviesData.json */; };
 		BC794AF5272F0FD50040B2FA /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AF2272F0FD50040B2FA /* ResourceLoader.swift */; };
 		BC794AF8272F18030040B2FA /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC794AF7272F18030040B2FA /* MockSearchService.swift */; };
+		BCB88EF12743967300E25A46 /* ApiManagerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB88EF02743967300E25A46 /* ApiManagerBuilder.swift */; };
+		BCB88EF32743969400E25A46 /* ApiCallListenerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB88EF22743969400E25A46 /* ApiCallListenerManager.swift */; };
+		BCB88EF62743990900E25A46 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB88EF52743990900E25A46 /* LoadingViewController.swift */; };
+		BCB88EF827439F8100E25A46 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB88EF727439F8100E25A46 /* UIApplication+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		BC58F3E5272835850079B893 /* myTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC58F3E8272835850079B893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC58F3EA272835850079B893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +189,10 @@
 		BC794AF0272F0FD50040B2FA /* moviesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviesData.json; sourceTree = "<group>"; };
 		BC794AF2272F0FD50040B2FA /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
 		BC794AF7272F18030040B2FA /* MockSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockSearchService.swift; path = myTunesTests/Resources/MockSearchService.swift; sourceTree = SOURCE_ROOT; };
+		BCB88EF02743967300E25A46 /* ApiManagerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerBuilder.swift; sourceTree = "<group>"; };
+		BCB88EF22743969400E25A46 /* ApiCallListenerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallListenerManager.swift; sourceTree = "<group>"; };
+		BCB88EF52743990900E25A46 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		BCB88EF727439F8100E25A46 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +250,7 @@
 				BC58F43E27295A710079B893 /* Components */,
 				BC58F41827283D7C0079B893 /* BaseComponents */,
 				BC794A8D272B33F90040B2FA /* ServiceProviders */,
+				BCB88EEE2743962C00E25A46 /* Managers */,
 				BC794A84272B2A900040B2FA /* Models */,
 				BC58F4262728906C0079B893 /* Utils */,
 				BC58F42527286D4B0079B893 /* Resources */,
@@ -298,6 +309,8 @@
 				BC794A782729F5580040B2FA /* UIFont+Extension.swift */,
 				BC794AA6272DB47E0040B2FA /* UIImageView+Extension.swift */,
 				BC794AD8272ED1300040B2FA /* String+Extension.swift */,
+				BC20A8072742992C00E3EDE8 /* UITextField+Extension.swift */,
+				BCB88EF727439F8100E25A46 /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +321,7 @@
 				BC58F4372728BCAD0079B893 /* Home */,
 				BC794ABB272E21E10040B2FA /* Detail */,
 				BC58F42D2728A2100079B893 /* Splash */,
+				BCB88EF4274398D600E25A46 /* LoadingIndicator */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -585,6 +599,31 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		BCB88EEE2743962C00E25A46 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BCB88EEF2743964A00E25A46 /* ApiManagerModules */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BCB88EEF2743964A00E25A46 /* ApiManagerModules */ = {
+			isa = PBXGroup;
+			children = (
+				BCB88EF02743967300E25A46 /* ApiManagerBuilder.swift */,
+				BCB88EF22743969400E25A46 /* ApiCallListenerManager.swift */,
+			);
+			path = ApiManagerModules;
+			sourceTree = "<group>";
+		};
+		BCB88EF4274398D600E25A46 /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				BCB88EF52743990900E25A46 /* LoadingViewController.swift */,
+			);
+			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -749,13 +788,16 @@
 				BC794A90272B34220040B2FA /* SearchServiceProvider.swift in Sources */,
 				BC58F43B2728BD250079B893 /* HomeViewModel.swift in Sources */,
 				BC794ACC272E37EA0040B2FA /* DetailViewData.swift in Sources */,
+				BCB88EF62743990900E25A46 /* LoadingViewController.swift in Sources */,
 				BC58F41A27283D910079B893 /* BaseViewController.swift in Sources */,
 				BC58F4312728A2990079B893 /* SplashViewModel.swift in Sources */,
 				BC794ACF272E39600040B2FA /* DetailDescriptionLabelView.swift in Sources */,
+				BCB88EF32743969400E25A46 /* ApiCallListenerManager.swift in Sources */,
 				BC58F4392728BCCE0079B893 /* HomeViewController.swift in Sources */,
 				BC794A89272B30080040B2FA /* SearchDataRequest.swift in Sources */,
 				BC794AA7272DB47E0040B2FA /* UIImageView+Extension.swift in Sources */,
 				BC794A7C272AC46A0040B2FA /* MainCollectionContentView.swift in Sources */,
+				BCB88EF12743967300E25A46 /* ApiManagerBuilder.swift in Sources */,
 				BC58F3E9272835850079B893 /* AppDelegate.swift in Sources */,
 				BC58F41E27283E5C0079B893 /* BaseView.swift in Sources */,
 				BC794AC2272E22200040B2FA /* DetailViewBuilder.swift in Sources */,
@@ -765,6 +807,7 @@
 				BC794A7E272AC4C30040B2FA /* MainCollectionContentViewData.swift in Sources */,
 				BC794A792729F5580040B2FA /* UIFont+Extension.swift in Sources */,
 				BC58F41C27283E370079B893 /* GenericBaseView.swift in Sources */,
+				BC20A8082742992C00E3EDE8 /* UITextField+Extension.swift in Sources */,
 				BC58F43D2728BD4C0079B893 /* HomeViewBuilder.swift in Sources */,
 				BC794A81272AF50A0040B2FA /* MainCollectionView.swift in Sources */,
 				BC58F3EB272835850079B893 /* SceneDelegate.swift in Sources */,
@@ -790,6 +833,7 @@
 				BC794A83272AF5250040B2FA /* MainCollectionViewData.swift in Sources */,
 				BC58F4462729615C0079B893 /* HomeView.swift in Sources */,
 				BC794AC5272E303F0040B2FA /* DetailTopView.swift in Sources */,
+				BCB88EF827439F8100E25A46 /* UIApplication+Extension.swift in Sources */,
 				BC794A552729837D0040B2FA /* MainCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -970,6 +1014,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = myTunes;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -999,6 +1044,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = myTunes;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

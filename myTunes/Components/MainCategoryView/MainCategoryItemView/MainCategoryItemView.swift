@@ -126,10 +126,10 @@ extension MainCategoryItemView: UIGestureRecognizerDelegate {
     
     @objc fileprivate func categoryTapped(_ sender: UITapGestureRecognizer) {
         isUserInteractionEnabled = false
+        self.selectCategory()
         startTappedAnimation { finish in
             if finish {
                 self.isUserInteractionEnabled = true
-                self.selectCategory()
             }
         }
     }

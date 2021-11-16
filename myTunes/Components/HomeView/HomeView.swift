@@ -53,6 +53,10 @@ class HomeView: GenericBaseView<HomeViewData> {
         addComponents()
     }
     
+    override func setupViewConfigurations() {
+        addPanGesture()
+    }
+    
     override func loadViewData() {
         super.loadViewData()
         guard let data = returnData() else { return }
@@ -99,8 +103,8 @@ class HomeView: GenericBaseView<HomeViewData> {
 // MARK: - MainCollectionViewProtocol
 extension HomeView: MainCollectionViewProtocol {
     
-    func getNumberOfItem(in section: Int) -> Int {
-        delegate?.getNumberOfItem(in: section) ?? 0
+    func getNumberOfItem() -> Int {
+        delegate?.getNumberOfItem() ?? 0
     }
     
     func getData(at index: Int) -> MainCollectionContentViewData? {
@@ -120,4 +124,28 @@ extension HomeView: MainCollectionViewProtocol {
         delegate?.selectedItem(at: index)
     }
     
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension HomeView: UIGestureRecognizerDelegate {
+    private func addPanGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: .homeViewInteractionSelector)
+    
+        panGesture.delegate = self
+        addGestureRecognizer(panGesture)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    
+    @objc fileprivate func homeViewInteracted(_ sender: UIGestureRecognizer) {
+        self.searchFieldView.removeFocus()
+    }
+    
+}
+
+fileprivate extension Selector {
+    static let homeViewInteractionSelector = #selector(HomeView.homeViewInteracted)
 }

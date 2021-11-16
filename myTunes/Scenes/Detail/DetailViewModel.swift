@@ -31,7 +31,7 @@ class DetailViewModel {
     private func getDetailData(completion: @escaping SearchDataResponseBlock) {
         do {
             let urlRequest = try DetailServiceProvider(requestData: dataRequest).returnUrlRequest()
-            APIManager.shared.executeRequest(urlRequest: urlRequest, completion: completion)
+            ApiManagerBuilder.build().executeRequest(urlRequest: urlRequest, completion: completion)
         } catch let error {
             print("error : \(error)")
         }

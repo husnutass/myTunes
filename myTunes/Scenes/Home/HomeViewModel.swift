@@ -32,7 +32,7 @@ class HomeViewModel {
         dataRequest.setMedia(media: selectedCategory.rawValue)
         do {
             let urlRequest = try SearchServiceProvider(requestData: dataRequest).returnUrlRequest()
-            APIManager.shared.executeRequest(urlRequest: urlRequest, completion: completion)
+            ApiManagerBuilder.build().executeRequest(urlRequest: urlRequest, completion: completion)
         } catch let error {
             print("error : \(error)")
         }
@@ -120,7 +120,7 @@ class HomeViewModel {
 // MARK: - MainCollectionViewProtocol
 extension HomeViewModel: MainCollectionViewProtocol {
     
-    func getNumberOfItem(in section: Int) -> Int {
+    func getNumberOfItem() -> Int {
         guard let data = searchResponseData else { return 0 }
         return data.resultCount
     }
@@ -131,8 +131,7 @@ extension HomeViewModel: MainCollectionViewProtocol {
     }
     
     func getMoreData() {
-        guard let data = searchResponseData else { return }
-        guard dataRequest.checkLoadingMore(control: data.resultCount) else { return }
+        guard let data = searchResponseData, dataRequest.checkLoadingMore(control: data.resultCount) else { return }
         dataRequest.incrementOffset()
         getSearchDataWithOffset()
     }
