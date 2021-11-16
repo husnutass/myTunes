@@ -1202,8 +1202,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/husnutass/DefaultNetworkOperationPackage";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
 		BC794AA8272DB49F0040B2FA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
