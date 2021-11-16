@@ -21,7 +21,7 @@
 - Language: Swift 5
 - Minimum iOS Version: 15
 - Design Pattern: MVVM
-- Dependenct Manager: Swift Package Manager
+- Dependency Manager: Swift Package Manager
 - Dependencies: **[DefaultNetworkOperationPackage](https://github.com/husnutass/DefaultNetworkOperationPackage), Kingfisher**
 
 
